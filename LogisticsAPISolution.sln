@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{33BBD305-F513-4F57-B64E-C9216F3507DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogisticsAPI", "src\LogisticsAPI\LogisticsAPI.csproj", "{59762197-C1D8-4D40-BCC2-DD17854A1070}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0EE1EE1C-A8D4-4648-9549-1F5110F42227}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogisticsAPITest", "test\LogisticsAPITest\LogisticsAPITest.csproj", "{FD1FCC05-0187-4F2E-916A-6333567A37FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59762197-C1D8-4D40-BCC2-DD17854A1070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59762197-C1D8-4D40-BCC2-DD17854A1070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59762197-C1D8-4D40-BCC2-DD17854A1070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59762197-C1D8-4D40-BCC2-DD17854A1070}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD1FCC05-0187-4F2E-916A-6333567A37FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD1FCC05-0187-4F2E-916A-6333567A37FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD1FCC05-0187-4F2E-916A-6333567A37FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD1FCC05-0187-4F2E-916A-6333567A37FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{59762197-C1D8-4D40-BCC2-DD17854A1070} = {33BBD305-F513-4F57-B64E-C9216F3507DF}
+		{FD1FCC05-0187-4F2E-916A-6333567A37FC} = {0EE1EE1C-A8D4-4648-9549-1F5110F42227}
+	EndGlobalSection
+EndGlobal
