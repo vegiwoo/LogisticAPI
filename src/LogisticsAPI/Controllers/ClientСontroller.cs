@@ -1,14 +1,20 @@
+using LogisticsAPI.Data;
+using LogisticsAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LogisticsAPI.Controllers
 {
     [Route("api/clients")]
     [ApiController]
-    public class ClientsСontroller : ControllerBase
+    public class ClientsСontroller(IClientAPIRepo repository) : ControllerBase
     {
+        private readonly IClientAPIRepo _repository = repository;
+
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get() => 
-            new string[] {"this", "is", "hard", "coded"};
-        
+        public ActionResult<IEnumerable<Client>> GetAllClients()  
+        {
+            var clientItems = _repository.GetAllClients();
+            return Ok(clientItems);
+        }
     }
 }
