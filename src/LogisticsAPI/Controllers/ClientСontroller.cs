@@ -16,5 +16,12 @@ namespace LogisticsAPI.Controllers
             var clientItems = _repository.GetAllClients();
             return Ok(clientItems);
         }
+
+        [HttpGet("{id}")]
+        public ActionResult<Client> GetClientById(int id) 
+        {
+            var clientItem = _repository.GetClientById(id);
+            return clientItem is null ? NotFound() : Ok(clientItem);
+        }
     }
 }

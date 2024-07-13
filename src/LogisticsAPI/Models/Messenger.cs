@@ -21,15 +21,19 @@ namespace LogisticsAPI.Models
                 case MessengerType.Telegram:
                     if (uriString.StartsWith('@')) 
                     {
-                        uriString = uriString.Remove(0);
-                        if(Uri.TryCreate(uriString, UriKind.RelativeOrAbsolute, out Uri? uri)) 
-                        {
-                            Link = uri;
-                        } 
-                        else 
-                        {
-                            throw new Exception($"Невозожно создать url из строки '{uriString}'.\nПроверьте правильность ее формирования.");
-                        }
+                        uriString = uriString.Remove(0, 1);
+                    }
+
+                    uriString = TELEGRAM_URL + uriString;
+
+                    if(Uri.TryCreate(uriString, UriKind.RelativeOrAbsolute, out Uri? uri)) 
+                    {
+                        Link = uri;
+                    } 
+                    else 
+                    {
+                        Link = null;
+                        throw new Exception($"Невозожно создать url из строки '{uriString}'.\nПроверьте правильность ее формирования.");
                     }
                     break;
             }
