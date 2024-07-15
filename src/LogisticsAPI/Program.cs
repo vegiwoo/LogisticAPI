@@ -7,11 +7,6 @@ builder.Services.AddControllers();
 
 // DI
 builder.Services.AddScoped<IClientAPIRepo, MockClientAPIRepo>();
-/*
-    AddTransient: Служба создается каждый раз, когда она запрашивается из Service Container.
-    AddScoped: Служба создается один раз для каждого клиентского запроса (подключения). 
-    AddSingleton: Сервис создается один раз.
-*/
 
 
 var app = builder.Build();
@@ -23,5 +18,4 @@ app.UseEndpoints(endpoints =>
     _ = endpoints.MapControllers();
 });
 
-//app.MapGet("/", () => "Hello World!");
 app.Run();
