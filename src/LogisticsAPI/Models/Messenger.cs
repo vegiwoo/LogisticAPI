@@ -4,6 +4,7 @@ namespace LogisticsAPI.Models
     {
         #region Variables and constants 
         private const string TELEGRAM_URL = "http://t.me/";
+
         #endregion
 
         #region Properties

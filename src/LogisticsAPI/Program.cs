@@ -1,4 +1,7 @@
 using LogisticsAPI.Data;
+using Microsoft.EntityFrameworkCore;
+
+const string POSTGRE_SQL_CONNECTION = "PostgreSqlConnection";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,8 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // DI
-builder.Services.AddScoped<IClientAPIRepo, MockClientAPIRepo>();
+// builder.Services.AddScoped<IClientAPIRepo, MockClientAPIRepo>(); мок-объекты
+builder.Services.AddScoped<IClientAPIRepo, SQLClientApiRepo>(); 
 
+// Добавление контекста БД и строки подключения
+builder.Services.AddDbContext<ClientContext>(opt => 
+    opt.UseNpgsql(builder.Configuration.GetConnectionString(POSTGRE_SQL_CONNECTION))
+);
 
 var app = builder.Build();
 
