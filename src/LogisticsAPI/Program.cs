@@ -16,6 +16,7 @@ builder.Services.AddControllers();
 // DI
 // builder.Services.AddScoped<IClientAPIRepo, MockClientAPIRepo>(); мок-объекты
 builder.Services.AddScoped<IClientAPIRepo, SQLClientApiRepo>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Добавление контекста БД и строки подключения
 var npgsqlConnectionStringBuilder = new NpgsqlConnectionStringBuilder(builder.Configuration.GetConnectionString(POSTGRE_SQL_CONNECTION))

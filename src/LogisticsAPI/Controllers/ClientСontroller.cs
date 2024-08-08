@@ -1,4 +1,6 @@
+using AutoMapper;
 using LogisticsAPI.Data;
+using LogisticsAPI.DTOs;
 using LogisticsAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,22 +8,20 @@ namespace LogisticsAPI.Controllers
 {
     [Route("api/clients")]
     [ApiController]
-    public class ClientsСontroller(IClientAPIRepo repository) : ControllerBase
+    public class ClientsСontroller(IClientAPIRepo repository, IMapper mapper) : ControllerBase
     {
         private readonly IClientAPIRepo _repository = repository;
+        private readonly IMapper _mapper = mapper;
 
         [HttpGet]
-        public ActionResult<IEnumerable<Client>> GetAllClients()  
-        {
-            var clientItems = _repository.GetAllClients();
-            return Ok(clientItems);
-        }
-
+        public ActionResult<IEnumerable<ClientReadDTO>> GetAllClients() => 
+            Ok(_mapper.Map<IEnumerable<ClientReadDTO>>(_repository.GetAllClients()));
+        
         [HttpGet("{id}")]
-        public ActionResult<Client> GetClientById(int id) 
+        public ActionResult<ClientReadDTO> GetClientById(int id) 
         {
             var clientItem = _repository.GetClientById(id);
-            return clientItem is null ? NotFound() : Ok(clientItem);
+            return clientItem is null ? NotFound() : Ok(_mapper.Map<ClientReadDTO>(clientItem));
         }
 
         // [HttpPost]
