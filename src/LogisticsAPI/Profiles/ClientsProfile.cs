@@ -8,7 +8,9 @@ namespace LogisticsAPI.Profiles
     {
        public ClientsProfile()
        {
+            //Source -> Target
             CreateMap<Client, ClientReadDTO>();
+            CreateMap<ClientCreateDTO, Client>();
        }
     }
 }

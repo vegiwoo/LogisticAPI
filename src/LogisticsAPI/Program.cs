@@ -1,6 +1,10 @@
 using LogisticsAPI.Data;
+using LogisticsAPI.Services.FileService;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
+using OfficeOpenXml;
+
+ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
 const string POSTGRE_SQL_CONNECTION = "PostgreSqlConnection";
 const string USER_ID_NAME = "User ID";
@@ -17,6 +21,7 @@ builder.Services.AddControllers();
 // builder.Services.AddScoped<IClientAPIRepo, MockClientAPIRepo>(); мок-объекты
 builder.Services.AddScoped<IClientAPIRepo, SQLClientApiRepo>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<IFileService, FileService>();
 
 // Добавление контекста БД и строки подключения
 var npgsqlConnectionStringBuilder = new NpgsqlConnectionStringBuilder(builder.Configuration.GetConnectionString(POSTGRE_SQL_CONNECTION))

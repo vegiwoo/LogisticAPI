@@ -6,9 +6,16 @@ namespace LogisticsAPI.Data
     {
         private readonly ClientContext _context = context;
 
-        public void CreateClient(Client client)
+        public void CreateClients(IEnumerable<Client> clients)
         {
-            throw new NotImplementedException();
+            if(!clients.Any()) 
+            {
+                throw new ArgumentException(null, nameof(clients));
+            } 
+            else 
+            {
+                _context.ClientItems.AddRange(clients);
+            }
         }
 
         public void DeleteClient(Client cmd)
@@ -21,10 +28,9 @@ namespace LogisticsAPI.Data
         public Client? GetClientById(int id) => 
             _context.ClientItems.FirstOrDefault(p => p.ServiceId == id);
 
-        public bool SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
+        public bool SaveChanges() => 
+            _context.SaveChanges() >= 0;
+        
 
         public void UpdateClient(Client client)
         {

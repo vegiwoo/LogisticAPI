@@ -7,7 +7,7 @@ namespace LogisticsAPI.Data
         bool SaveChanges();
         IEnumerable<Client> GetAllClients();
         Client? GetClientById(int id);
-        void CreateClient(Client client);
+        void CreateClients(IEnumerable<Client> clients);
         void UpdateClient(Client client);
         void DeleteClient(Client cmd);
     }

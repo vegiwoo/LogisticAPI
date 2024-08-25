@@ -11,7 +11,7 @@ namespace LogisticsAPI.Data
             new Client(2, "Борис Николаев", "Николаев Борис Григорьевич", "+79453213468"/*, new Messenger(MessengerType.Telegram, "@testTlgName02")*/),
         ];
 
-        public void CreateClient(Client client)
+        public void CreateClients(IEnumerable<Client> clients)
         {
             throw new NotImplementedException();
         }
