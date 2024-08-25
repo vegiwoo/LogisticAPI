@@ -25,6 +25,5 @@ namespace LogisticsAPI.Services.FileService
         /// <param name="fileInfo">File info.</param>
         /// <returns>Verification flag.</returns>
         public bool CheckFileIsNotEmpty(ref FileInfo fileInfo);
-
     }
 }
