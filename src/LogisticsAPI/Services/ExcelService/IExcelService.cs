@@ -1,28 +1,14 @@
-<<<<<<< HEAD
+
 using LogisticsAPI.Services.ExcelService.Items;
 using LogisticsAPI.Services.FileService;
 using OfficeOpenXml;
 
-=======
-<<<<<<< HEAD
-=======
-using LogisticsAPI.Services.FileService;
-using OfficeOpenXml;
-
->>>>>>> 5155116 (Developing the CreateClients POST route logic)
->>>>>>> 1fbc427
 namespace LogisticsAPI.Services.ExcelService
 {
     public interface IExcelService
     {
-<<<<<<< HEAD
+
         public Dictionary<FileContext, (string worksheetName, List<RangeSourceReportRows> ranges)> DataColumnsForParsing {get; set;}
-=======
-<<<<<<< HEAD
-        
-=======
-        public Dictionary<FileContext, (string worksheetName, List<DataColumnForParsing> dataColumns)> DataColumnsForParsing {get; set;}
->>>>>>> 1fbc427
 
         /// <summary>
         /// Returns a Worksheet from given Excel file named Worksheet.
@@ -32,7 +18,7 @@ namespace LogisticsAPI.Services.ExcelService
         /// <param name="worksheet">Worksheet (if found by name) or null.</param>
         /// <returns>Worksheet search flag.</returns>
         public bool GetWorksheetByName(in ExcelPackage package, string name, out ExcelWorksheet? worksheet);
-<<<<<<< HEAD
+
 
         /// <summary>
         /// Creates ranges of row indices.
@@ -58,8 +44,5 @@ namespace LogisticsAPI.Services.ExcelService
         /// <param name="worksheet">Excel worksheet for searching.</param>
         /// <returns>Integer index of row or null.</returns>
         public bool GetRowIndexFromExcelWorksheetByStringValue(string key, in ExcelWorksheet worksheet, out int? rowInex);
-=======
->>>>>>> 5155116 (Developing the CreateClients POST route logic)
->>>>>>> 1fbc427
     }
 }

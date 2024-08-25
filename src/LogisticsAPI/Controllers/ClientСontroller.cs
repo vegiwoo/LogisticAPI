@@ -4,10 +4,7 @@ using LogisticsAPI.Data;
 using LogisticsAPI.DTOs;
 using LogisticsAPI.Models;
 using LogisticsAPI.Services.ExcelService;
-<<<<<<< HEAD
 using LogisticsAPI.Services.ExcelService.Items;
-=======
->>>>>>> 1fbc427
 using LogisticsAPI.Services.FileService;
 using Microsoft.AspNetCore.Mvc;
 using OfficeOpenXml;
@@ -48,24 +45,19 @@ namespace LogisticsAPI.Controllers
             if(_fileService.CheckFileName(FileContext.СlientsSKUs, data.FileName))
                 return BadRequest($"Name '{data.FileName}' is not suitable for this file.");
 
-<<<<<<< HEAD
             // Copy data in MemoryStream
-=======
->>>>>>> 1fbc427
+
             using var stream = new MemoryStream();
             CancellationToken cancellationToken = new();
             await data.CopyToAsync(stream, cancellationToken);
 
-<<<<<<< HEAD
             // Create ExcelPackage and find ExcelWorksheet
-=======
->>>>>>> 1fbc427
             using var package = new ExcelPackage(stream);
             var sheetName = _excelService.DataColumnsForParsing[FileContext.СlientsSKUs].worksheetName;
             if (!_excelService.GetWorksheetByName(in package, sheetName, out ExcelWorksheet? excelWorksheet))
                 return BadRequest($"There is no Excel sheet named {sheetName} in provided file.");
 
-<<<<<<< HEAD
+
             // Getting ranges from an Excel sheet
             List<RangeSourceReportRows>? dataColumnsForParsing = _excelService.DataColumnsForParsing
                 .SingleOrDefault(el => el.Key == FileContext.СlientsSKUs).Value.ranges;
@@ -80,11 +72,6 @@ namespace LogisticsAPI.Controllers
             // Getting raw data from Excel sheet ranges
 
             return Ok(dataColumnsForParsing.First().RangeRowIndexes?.First());
-=======
-            // 
-
-            return Ok(excelWorksheet!.Dimension.Rows);
->>>>>>> 1fbc427
         }
 
         /*

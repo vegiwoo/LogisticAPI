@@ -1,22 +1,14 @@
-<<<<<<< HEAD
+
 using LogisticsAPI.Services.ExcelService.Items;
 using LogisticsAPI.Services.FileService;
 using OfficeOpenXml;
-=======
-<<<<<<< HEAD
-using LogisticsAPI.Services.FileService;
-=======
-using System.Diagnostics;
-using LogisticsAPI.Services.FileService;
-using OfficeOpenXml;
->>>>>>> 5155116 (Developing the CreateClients POST route logic)
->>>>>>> 1fbc427
+
 
 namespace LogisticsAPI.Services.ExcelService
 {
     public class ExcelService : IExcelService
     {
-<<<<<<< HEAD
+
         #region Variables and constants 
         const int DEFAULT_PARSING_STEP = 1;
         #endregion
@@ -37,37 +29,11 @@ namespace LogisticsAPI.Services.ExcelService
                         new(6, "Nick", typeof(string), false),
                         new(7, "Phone", typeof(string), true)
                     ])
-=======
-<<<<<<< HEAD
-        private readonly Dictionary<FileContext, List<DataColumnForParsing>> DataColumnsForParsing = new() 
-        {
-            {
-                FileContext.СlientsSKUs, new List<DataColumnForParsing> 
-=======
-        public Dictionary<FileContext, (string worksheetName, List<DataColumnForParsing> dataColumns)> DataColumnsForParsing {get; set;} = new() 
-        {
-            {
-                FileContext.СlientsSKUs, ("Справочник", new List<DataColumnForParsing> 
->>>>>>> 5155116 (Developing the CreateClients POST route logic)
-                {
-                    //new(1, "SKUNumber", typeof(int), true),
-                    //new(2, "SKUName", typeof(string), true),
-                    //new(3, "SKUSizes", typeof(string), false),
-                    new(4, "ServiceId", typeof(int), true),
-                    new(5, "Name", typeof(string), false),
-                    new(6, "Nick", typeof(string), false),
-                    new(7, "Phone", typeof(string), true)
-<<<<<<< HEAD
-                }
-            }
-        };
-=======
->>>>>>> 1fbc427
+
                 })
             }
         };
 
-<<<<<<< HEAD
         #endregion
 
         #region Functionality
@@ -189,18 +155,12 @@ namespace LogisticsAPI.Services.ExcelService
             rangeSourceReportRows = outputRanges;
         }
 
-=======
->>>>>>> 1fbc427
         public bool GetWorksheetByName(in ExcelPackage package, string name, out ExcelWorksheet? worksheet)
         {
             worksheet = package.Workbook.Worksheets.First(sh => string.Equals(sh.Name.Trim().ToLower(),name.Trim().ToLower()));
             return worksheet is not null;
         }
-<<<<<<< HEAD
 
         #endregion
-=======
->>>>>>> 5155116 (Developing the CreateClients POST route logic)
->>>>>>> 1fbc427
     }
 }
