@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 35b6ad5 (Implementation of getting a range of rows when parsing an Excel sheet)
 using LogisticsAPI.Services.ExcelService.Items;
 using LogisticsAPI.Services.FileService;
 using OfficeOpenXml;
@@ -10,10 +6,6 @@ namespace LogisticsAPI.Services.ExcelService
 {
     public interface IExcelService
     {
-<<<<<<< HEAD
-
-=======
->>>>>>> 35b6ad5 (Implementation of getting a range of rows when parsing an Excel sheet)
         public Dictionary<FileContext, (string worksheetName, List<RangeSourceReportRows> ranges)> DataColumnsForParsing {get; set;}
 
         /// <summary>
@@ -25,10 +17,6 @@ namespace LogisticsAPI.Services.ExcelService
         /// <returns>Worksheet search flag.</returns>
         public bool GetWorksheetByName(in ExcelPackage package, string name, out ExcelWorksheet? worksheet);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 35b6ad5 (Implementation of getting a range of rows when parsing an Excel sheet)
         /// <summary>
         /// Creates ranges of row indices.
         /// </summary>
@@ -53,5 +41,32 @@ namespace LogisticsAPI.Services.ExcelService
         /// <param name="worksheet">Excel worksheet for searching.</param>
         /// <returns>Integer index of row or null.</returns>
         public bool GetRowIndexFromExcelWorksheetByStringValue(string key, in ExcelWorksheet worksheet, out int? rowInex);
+
+        /// <summary>
+        /// Gets data from row ranges in specified Excel worksheet.
+        /// </summary>
+        /// <param name="workSheet">Specified Excel worksheet</param>
+        /// <param name="reportRowsRanges">List of ranges.</param>
+        public void GetRawDataFromExcelRows(in ExcelWorksheet workSheet, ref List<RangeSourceReportRows> reportRowsRanges);
+
+        /// Gets data from a range row in specified Excel worksheet.
+        /// </summary>
+        /// <param name="workSheet">Specified Excel worksheet.</param>
+        /// <param name="rowIndex">Row index.</param>
+        /// <param name="sourceColumns">A list with a description of source cells in a row.</param>
+        /// <param name="values">Dictionary of retrieved values by row.</param>
+        /// <returns>Boolean flag for success of completed operation.</returns>
+        /// <remarks><i>New version, tested</i></remarks>
+        public bool GetValuesFromRow(in ExcelWorksheet workSheet, int rowIndex, in List<TableColumnPrototype> sourceColumns, out Dictionary<string, ItemForParsing>? values);
+
+        /// <summary>
+        /// Checks for presence of addresses in a row of an Excel table. 
+        /// </summary>
+        /// <param name="workSheet">Excel workbook worksheet.</param>
+        /// <param name="rowIndex">Row index.</param>
+        /// <param name="sourceColumns">Column prototypes for creating an address (row/column).</param>
+        /// <returns>Check flag.</returns>
+         public bool CheckPresenceAddressesInRow(in ExcelWorksheet workSheet, int rowIndex, in List<TableColumnPrototype> sourceColumns);
+
     }
 }

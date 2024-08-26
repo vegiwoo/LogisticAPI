@@ -46,10 +46,6 @@ namespace LogisticsAPI.Controllers
                 return BadRequest($"Name '{data.FileName}' is not suitable for this file.");
 
             // Copy data in MemoryStream
-<<<<<<< HEAD
-
-=======
->>>>>>> 35b6ad5 (Implementation of getting a range of rows when parsing an Excel sheet)
             using var stream = new MemoryStream();
             CancellationToken cancellationToken = new();
             await data.CopyToAsync(stream, cancellationToken);
@@ -60,28 +56,27 @@ namespace LogisticsAPI.Controllers
             if (!_excelService.GetWorksheetByName(in package, sheetName, out ExcelWorksheet? excelWorksheet))
                 return BadRequest($"There is no Excel sheet named {sheetName} in provided file.");
 
-<<<<<<< HEAD
-
             // Getting ranges from an Excel sheet
             List<RangeSourceReportRows>? dataColumnsForParsing = _excelService.DataColumnsForParsing
                 .SingleOrDefault(el => el.Key == FileContext.СlientsSKUs).Value.ranges;
 
-=======
-            // Getting ranges from an Excel sheet
-            List<RangeSourceReportRows>? dataColumnsForParsing = _excelService.DataColumnsForParsing
-                .SingleOrDefault(el => el.Key == FileContext.СlientsSKUs).Value.ranges;
-
->>>>>>> 35b6ad5 (Implementation of getting a range of rows when parsing an Excel sheet)
             if(dataColumnsForParsing is null)
                 return BadRequest($"No prototype for parsing (key '{FileContext.СlientsSKUs}').");
 
             _excelService.GetRangesRowsFromExcelWorksheet(in excelWorksheet!, ref dataColumnsForParsing);
 
+            // Getting raw data from Excel sheet ranges
+            _excelService.GetRawDataFromExcelRows(in excelWorksheet!, ref dataColumnsForParsing);
+
+            // Union collections
+            IEnumerable<Dictionary<string, ItemForParsing>> rawRowsItems = 
+                from sourceReportRowsRange in dataColumnsForParsing
+                from item in sourceReportRowsRange.DataOnReadRowsCollection
+                select item;
+
             // TODO: Сохранить dataColumnsForParsing обратно в словарь.
 
-            // Getting raw data from Excel sheet ranges
-
-            return Ok(dataColumnsForParsing.First().RangeRowIndexes?.First());
+            return Ok(rawRowsItems.Count());
         }
 
         /*

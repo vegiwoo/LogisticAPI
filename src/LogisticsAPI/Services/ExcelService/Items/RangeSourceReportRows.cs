@@ -3,7 +3,7 @@ namespace LogisticsAPI.Services.ExcelService.Items
     /// <summary>
     /// Represents a range of source report rows.
     /// </summary>
-    public class RangeSourceReportRows(List<DataColumnForParsing> dataColumnsForParsing, string? key = null, (string key, int offset)? terminatingStringValue = null)
+    public class RangeSourceReportRows(List<TableColumnPrototype> dataColumnsForParsing, string? key = null, (string key, int offset)? terminatingStringValue = null)
     {
         #region Properties
         /// <summary>
@@ -19,7 +19,7 @@ namespace LogisticsAPI.Services.ExcelService.Items
         /// <summary>
         /// Collection of SourceColumn objects (describe cource columns of range)
         /// </summary>
-        public List<DataColumnForParsing> DataColumnsForParsing { get; } = dataColumnsForParsing;
+        public List<TableColumnPrototype> DataColumnsForParsing { get; } = dataColumnsForParsing;
 
         /// <summary>
         /// A collection of range row indexes.
