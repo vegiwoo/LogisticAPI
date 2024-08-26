@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 35b6ad5 (Implementation of getting a range of rows when parsing an Excel sheet)
-using LogisticsAPI.Services.ExcelService.Items;
+using System.Diagnostics;
 using LogisticsAPI.Services.FileService;
 using OfficeOpenXml;
 
@@ -11,34 +7,18 @@ namespace LogisticsAPI.Services.ExcelService
 {
     public class ExcelService : IExcelService
     {
-<<<<<<< HEAD
-
-=======
->>>>>>> 35b6ad5 (Implementation of getting a range of rows when parsing an Excel sheet)
-        #region Variables and constants 
-        const int DEFAULT_PARSING_STEP = 1;
-        #endregion
-
-        #region Properties
-        public Dictionary<FileContext, (string worksheetName, List<RangeSourceReportRows> ranges)> DataColumnsForParsing {get; set;} = new() 
+        public Dictionary<FileContext, (string worksheetName, List<DataColumnForParsing> dataColumns)> DataColumnsForParsing {get; set;} = new() 
         {
             {
                 FileContext.СlientsSKUs, ("Справочник", new List<RangeSourceReportRows> 
                 {
-                    new(
-                    [
-                        //new(1, "SKUNumber", typeof(int), true),
-                        //new(2, "SKUName", typeof(string), true),
-                        //new(3, "SKUSizes", typeof(string), false),
-                        new(4, "ServiceId", typeof(int), true),
-                        new(5, "Name", typeof(string), false),
-                        new(6, "Nick", typeof(string), false),
-                        new(7, "Phone", typeof(string), true)
-                    ])
-<<<<<<< HEAD
-
-=======
->>>>>>> 35b6ad5 (Implementation of getting a range of rows when parsing an Excel sheet)
+                    //new(1, "SKUNumber", typeof(int), true),
+                    //new(2, "SKUName", typeof(string), true),
+                    //new(3, "SKUSizes", typeof(string), false),
+                    new(4, "ServiceId", typeof(int), true),
+                    new(5, "Name", typeof(string), false),
+                    new(6, "Nick", typeof(string), false),
+                    new(7, "Phone", typeof(string), true)
                 })
             }
         };
