@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 35b6ad5 (Implementation of getting a range of rows when parsing an Excel sheet)
 using LogisticsAPI.Services.ExcelService.Items;
 using LogisticsAPI.Services.FileService;
 using OfficeOpenXml;
@@ -8,7 +11,10 @@ namespace LogisticsAPI.Services.ExcelService
 {
     public class ExcelService : IExcelService
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 35b6ad5 (Implementation of getting a range of rows when parsing an Excel sheet)
         #region Variables and constants 
         const int DEFAULT_PARSING_STEP = 1;
         #endregion
@@ -29,7 +35,10 @@ namespace LogisticsAPI.Services.ExcelService
                         new(6, "Nick", typeof(string), false),
                         new(7, "Phone", typeof(string), true)
                     ])
+<<<<<<< HEAD
 
+=======
+>>>>>>> 35b6ad5 (Implementation of getting a range of rows when parsing an Excel sheet)
                 })
             }
         };

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 35b6ad5 (Implementation of getting a range of rows when parsing an Excel sheet)
 using LogisticsAPI.Services.ExcelService.Items;
 using LogisticsAPI.Services.FileService;
 using OfficeOpenXml;
@@ -7,7 +10,10 @@ namespace LogisticsAPI.Services.ExcelService
 {
     public interface IExcelService
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 35b6ad5 (Implementation of getting a range of rows when parsing an Excel sheet)
         public Dictionary<FileContext, (string worksheetName, List<RangeSourceReportRows> ranges)> DataColumnsForParsing {get; set;}
 
         /// <summary>
@@ -19,7 +25,10 @@ namespace LogisticsAPI.Services.ExcelService
         /// <returns>Worksheet search flag.</returns>
         public bool GetWorksheetByName(in ExcelPackage package, string name, out ExcelWorksheet? worksheet);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 35b6ad5 (Implementation of getting a range of rows when parsing an Excel sheet)
         /// <summary>
         /// Creates ranges of row indices.
         /// </summary>
