@@ -1,4 +1,5 @@
 using LogisticsAPI.Data;
+using LogisticsAPI.Services.ExcelService;
 using LogisticsAPI.Services.FileService;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
@@ -22,6 +23,7 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IClientAPIRepo, SQLClientApiRepo>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<IExcelService, ExcelService>();
 
 // Добавление контекста БД и строки подключения
 var npgsqlConnectionStringBuilder = new NpgsqlConnectionStringBuilder(builder.Configuration.GetConnectionString(POSTGRE_SQL_CONNECTION))
