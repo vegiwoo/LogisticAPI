@@ -1,4 +1,4 @@
-namespace LogisticsAPI.Services.ExcelService
+namespace LogisticsAPI.Services.ExcelService.Items
 {
     public class DataColumnForParsing(int index, string name, Type dataType, bool isValueRequired, string? filterString = null)
     {
